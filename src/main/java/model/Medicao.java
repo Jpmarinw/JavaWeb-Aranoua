@@ -1,9 +1,22 @@
+package model;
+
+import javax.persistence.*;
 import java.util.Calendar;
 
+@Entity(name = "medicao")
 public class Medicao{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "data_hora", nullable = false)
     private Calendar dataHora = Calendar.getInstance();
+
+    @Column(nullable = false)
     private double peso;
+
+    @Column(nullable = false)
     private double altura;
 
     public Calendar getDataHora() {

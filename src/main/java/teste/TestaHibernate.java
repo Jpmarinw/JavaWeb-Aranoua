@@ -1,12 +1,15 @@
+package teste;
+
+import model.Pessoa;
+import util.JPAUtil;
+
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import java.util.Calendar;
 
 public class TestaHibernate {
     public static void main(String[] args) {
-        EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("Banco01PU");
 
-        EntityManager entityManager = fabrica.createEntityManager();
+        EntityManager entityManager = JPAUtil.getEntityManager();
 
         Pessoa p1 = new Pessoa();
 
@@ -14,6 +17,10 @@ public class TestaHibernate {
         p1.setSexo("M");
         p1.setCpf("70338996290");
         p1.setTipoSanguineo("B-");
+
+        Calendar dataNascimento = Calendar.getInstance();
+        dataNascimento.set(2000, Calendar.OCTOBER, 17);
+        p1.setNascimento(dataNascimento);
 
         entityManager.getTransaction().begin();
         entityManager.persist(p1);

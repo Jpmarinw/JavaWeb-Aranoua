@@ -1,3 +1,7 @@
+package teste;
+
+import model.Pessoa;
+
 public class TestaPessoa {
 
     public static void main(String[] args) {

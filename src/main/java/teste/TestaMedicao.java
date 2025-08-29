@@ -1,3 +1,8 @@
+package teste;
+
+import model.Medicao;
+import model.Pessoa;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -37,7 +42,7 @@ public class TestaMedicao {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
         for(Medicao medicao : pessoa.getMedicao()){
-            System.out.println("\nMedicao "+formatter.format(medicao.getDataHora().getTime())+":");
+            System.out.println("\nmodel.Medicao "+formatter.format(medicao.getDataHora().getTime())+":");
             System.out.println("Peso: "+medicao.getPeso());
             System.out.println("Altura: "+medicao.getAltura());
         }

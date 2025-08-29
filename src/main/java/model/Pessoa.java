@@ -1,27 +1,35 @@
+package model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
+import java.util.List;
 
-@Entity
+@Entity(name = "pessoa")
 public class Pessoa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false, length = 100)
     private String nome;
-    private String sexo;
-    private String tipoSanguineo;
+
+    @Column(nullable = false, length = 11, unique = true)
     private String cpf;
 
+    @Column(nullable = false,length = 1)
+    private String sexo;
+
+    @Column(name = "tipo_sanguineo", nullable = false,length = 3)
+    private String tipoSanguineo;
+
+    @Column(nullable = false)
     private Calendar nascimento;
 
-    private ArrayList<Medicao> medicoes = new ArrayList<Medicao>();
+    @OneToMany
+    private List<Medicao> medicoes =new ArrayList<>();
 
     public Calendar getNascimento() {
         return nascimento;
@@ -61,7 +69,7 @@ public class Pessoa {
 
     public void setCpf(String cpf) { this.cpf = cpf; }
 
-    public ArrayList<Medicao> getMedicao() {
+    public List<Medicao> getMedicao() {
         return this.medicoes;
     }
 
