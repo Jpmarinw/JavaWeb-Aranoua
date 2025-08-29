@@ -7,14 +7,14 @@
 
     <persistence-unit name="Banco01PU">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <!-- Adicione suas classes de entidade aqui -->
+        <!-- Adicione suas  classes de entidade aqui -->
 
         <!-- Propriedades de configuração da unidade de persistência -->
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/dra_aula2025"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/aranoua_javaweb"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
-            <property name="javax.persistence.jdbc.password" value="ifam@2024"/>
+            <property name="javax.persistence.jdbc.password" value="root"/>
 
             <!-- Configurações adicionais do Hibernate -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/> <!-- Dialeto do MySQL -->
